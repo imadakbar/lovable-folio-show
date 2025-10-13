@@ -47,7 +47,7 @@ const Index = () => {
           density: {
             enable: true,
           },
-          value: 150,
+          value: 1000,
         },
         opacity: {
           value: 0.2,
