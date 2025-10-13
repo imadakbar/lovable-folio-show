@@ -1,12 +1,80 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { useEffect, useState, useMemo } from "react";
+import { loadSlim } from "@tsparticles/slim";
 
 const Index = () => {
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesOptions = useMemo(
+    () => ({
+      background: {
+        opacity: 0,
+      },
+      fpsLimit: 60,
+      particles: {
+        color: {
+          value: "#8B5CF6",
+        },
+        links: {
+          color: "#8B5CF6",
+          distance: 150,
+          enable: true,
+          opacity: 0.15,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none" as const,
+          random: false,
+          straight: false,
+          outModes: {
+            default: "bounce" as const,
+          },
+        },
+        number: {
+          density: {
+            enable: true,
+          },
+          value: 60,
+        },
+        opacity: {
+          value: 0.2,
+        },
+        shape: {
+          type: "circle",
+        },
+        size: {
+          value: { min: 1, max: 3 },
+        },
+      },
+      detectRetina: true,
+    }),
+    []
+  );
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 relative">
+      {init && (
+        <Particles
+          id="tsparticles"
+          options={particlesOptions}
+          className="absolute inset-0 z-0"
+        />
+      )}
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden z-10">
         <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
         <div className="container mx-auto px-6 py-20 relative z-10">
           <div className="max-w-4xl">
