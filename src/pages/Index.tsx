@@ -139,7 +139,7 @@ const Index = () => {
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Experience</h2>
         
         <div className="space-y-8">
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -154,7 +154,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -169,7 +169,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -184,7 +184,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -199,7 +199,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -214,7 +214,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -229,7 +229,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -244,7 +244,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
@@ -281,7 +281,7 @@ const Index = () => {
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Expertise</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Functional Areas</h3>
               <ul className="space-y-3">
@@ -321,7 +321,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Product and Program Toolset</h3>
               <ul className="space-y-3">
@@ -357,7 +357,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2 border-primary/20 bg-card/50 backdrop-blur">
+          <Card className="md:col-span-2 border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Languages and Tools</h3>
               <div className="flex flex-wrap gap-3">
@@ -406,7 +406,7 @@ const Index = () => {
       <section className="container mx-auto px-6 py-16 pb-24">
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Awards & Certifications</h2>
         
-        <Card className="border-primary/20 bg-card/50 backdrop-blur">
+        <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
           <CardContent className="p-6">
             <ul className="space-y-4">
               <li className="flex items-start gap-4">
