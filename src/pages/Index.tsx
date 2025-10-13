@@ -22,6 +22,20 @@ const Index = () => {
         opacity: 0,
       },
       fpsLimit: 60,
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse",
+          },
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4,
+          },
+        },
+      },
       particles: {
         color: {
           value: "#8B5CF6",
