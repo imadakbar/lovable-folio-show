@@ -61,7 +61,7 @@ const Index = () => {
           density: {
             enable: true,
           },
-          value: 1000,
+          value: 500,
         },
         opacity: {
           value: 0.2,
@@ -144,7 +144,7 @@ const Index = () => {
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                 <div>
                   <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Director - Product Management</h3>
-                  <p className="text-primary font-semibold mb-2">Disney Media and Entertainment Distribution (DMED)</p>
+                  <p className="text-primary font-semibold mb-2">The Walt Disney Company</p>
                 </div>
                 <Badge variant="secondary" className="shrink-0">March 2017 - Present</Badge>
               </div>
@@ -287,7 +287,11 @@ const Index = () => {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="text-primary mt-1">✓</span>
-                  <span className="text-muted-foreground">Digital Asset Management and Delivery</span>
+                  <span className="text-muted-foreground">Digital Supply Chain</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">✓</span>
+                  <span className="text-muted-foreground">Media Asset Management</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary mt-1">✓</span>
