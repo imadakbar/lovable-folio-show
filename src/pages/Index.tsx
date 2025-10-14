@@ -6,6 +6,8 @@ import { useEffect, useState, useMemo } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import { TimelineItem } from "@/components/TimelineItem";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { MiniGameButton } from "@/components/MiniGame";
 
 const Index = () => {
   const [init, setInit] = useState(false);
@@ -91,7 +93,9 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 relative">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 relative transition-colors duration-500">
+      <ThemeToggle />
+      <MiniGameButton />
       {init && (
         <Particles
           id="tsparticles"
