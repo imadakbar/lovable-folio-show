@@ -4,9 +4,12 @@ import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useState, useMemo } from "react";
 import { loadSlim } from "@tsparticles/slim";
+import { TimelineItem } from "@/components/TimelineItem";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Index = () => {
   const [init, setInit] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -14,6 +17,15 @@ const Index = () => {
     }).then(() => {
       setInit(true);
     });
+  }, []);
+
+  // Parallax effect for particles
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const particlesOptions = useMemo(
@@ -85,6 +97,10 @@ const Index = () => {
           id="tsparticles"
           options={particlesOptions}
           className="absolute inset-0 z-0"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
         />
       )}
       {/* Hero Section */}
@@ -139,140 +155,77 @@ const Index = () => {
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Experience</h2>
         
         <div className="space-y-8">
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Director - Product Management</h3>
-                  <p className="text-primary font-semibold mb-2">The Walt Disney Company</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">March 2017 - Present</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                I lead DMED's Asset Management Product team - we manage relationships with several business units that leverage our asset management and transport applications. I lead recurring meetings with business leadership across the enterprise to define strategy, prioritize development activities, create roadmaps, review timelines and risks, and manage expectations. I was formerly the Product Owner for Disney Studios' enterprise-wide Digital Asset Management system.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Director - Product Management"
+            company="The Walt Disney Company"
+            period="March 2017 - Present"
+            description="I lead DMED's Asset Management Product team - we manage relationships with several business units that leverage our asset management and transport applications. I lead recurring meetings with business leadership across the enterprise to define strategy, prioritize development activities, create roadmaps, review timelines and risks, and manage expectations. I was formerly the Product Owner for Disney Studios' enterprise-wide Digital Asset Management system."
+            delay={0}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Chief Technology Officer</h3>
-                  <p className="text-primary font-semibold mb-2">Limegreen.Media</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">August 2018 - August 2019</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                I lead our media services division. I establish standard operating procedures for our various work streams and also build products in the areas of media processing, localization, video streaming, and digital asset management. Additionally, we offer consulting services in the media and entertainment space.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Chief Technology Officer"
+            company="Limegreen.Media"
+            period="August 2018 - August 2019"
+            description="I lead our media services division. I establish standard operating procedures for our various work streams and also build products in the areas of media processing, localization, video streaming, and digital asset management. Additionally, we offer consulting services in the media and entertainment space."
+            delay={100}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Founder</h3>
-                  <p className="text-primary font-semibold mb-2">Localogic Media Services</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">March 2015 - March 2018</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Localogic uses cutting edge web based platforms to provide subtitling, translation, and dubbing services in several languages. With lean workflows incorporating both automated and manual QC, we localize content for several major streaming services at a fraction of the cost of other providers.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Founder"
+            company="Localogic Media Services"
+            period="March 2015 - March 2018"
+            description="Localogic uses cutting edge web based platforms to provide subtitling, translation, and dubbing services in several languages. With lean workflows incorporating both automated and manual QC, we localize content for several major streaming services at a fraction of the cost of other providers."
+            delay={200}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Project Manager</h3>
-                  <p className="text-primary font-semibold mb-2">OnPrem Solution Partners</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">November 2015 - March 2017</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                I managed the implementation of a solution integrating Business Process Management (Cordys) and Digital Asset Management (OpenText Media Management) capabilities. Prior to implementation, our project team conducted a thorough gap analysis, comprehensively modeled the current state, and designed the recommended future state. On a separate engagement, I performed an asset management assessment and presented findings for a major game studio.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Project Manager"
+            company="OnPrem Solution Partners"
+            period="November 2015 - March 2017"
+            description="I managed the implementation of a solution integrating Business Process Management (Cordys) and Digital Asset Management (OpenText Media Management) capabilities. Prior to implementation, our project team conducted a thorough gap analysis, comprehensively modeled the current state, and designed the recommended future state. On a separate engagement, I performed an asset management assessment and presented findings for a major game studio."
+            delay={300}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Sr Technical Project Manager</h3>
-                  <p className="text-primary font-semibold mb-2">Deluxe Media</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">June 2014 - November 2015</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                I managed several projects around the acquisition and QC, transcoding, packaging, and delivery of content to streaming services and broadcasters worldwide. The content was processed and delivered to a wide variety of platforms - web, iOS, Android, XBOX, Roku, smart TVs, tvOS (Apple TV), set top boxes, and other TVOD and SVOD platforms. I worked with several DRM and packaging standards - PlayReady, Widevine, FairPlay, Smooth Streaming, HLS, Mpeg DASH, and others.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Sr Technical Project Manager"
+            company="Deluxe Media"
+            period="June 2014 - November 2015"
+            description="I managed several projects around the acquisition and QC, transcoding, packaging, and delivery of content to streaming services and broadcasters worldwide. The content was processed and delivered to a wide variety of platforms - web, iOS, Android, XBOX, Roku, smart TVs, tvOS (Apple TV), set top boxes, and other TVOD and SVOD platforms. I worked with several DRM and packaging standards - PlayReady, Widevine, FairPlay, Smooth Streaming, HLS, Mpeg DASH, and others."
+            delay={400}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Senior Product Manager</h3>
-                  <p className="text-primary font-semibold mb-2">Beachbody</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">July 2013 - June 2014</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Product Owner for a custom application managing the end to end direct response marketing process. This including planning, configuring and executing media buys, ingesting and analyzing response data, and robust reporting. The application was integrated with several other apps via an Enterprise Service Bus.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Senior Product Manager"
+            company="Beachbody"
+            period="July 2013 - June 2014"
+            description="Product Owner for a custom application managing the end to end direct response marketing process. This including planning, configuring and executing media buys, ingesting and analyzing response data, and robust reporting. The application was integrated with several other apps via an Enterprise Service Bus."
+            delay={500}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Project Manager</h3>
-                  <p className="text-primary font-semibold mb-2">CBS Corporation</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">June 2011 - July 2013</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Managed and supported the implementation of multiple DAM systems. This included a custom system used to distribute marketing assets to local and international partners and an off the shelf product (MediaBeacon) used as a repository for assets of all types across multiple company divisions.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Project Manager"
+            company="CBS Corporation"
+            period="June 2011 - July 2013"
+            description="Managed and supported the implementation of multiple DAM systems. This included a custom system used to distribute marketing assets to local and international partners and an off the shelf product (MediaBeacon) used as a repository for assets of all types across multiple company divisions."
+            delay={600}
+          />
 
-          <Card className="group hover:shadow-glow hover:scale-[1.02] transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Sr Business Analyst</h3>
-                  <p className="text-primary font-semibold mb-2">Capgemini Consulting</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">March 2008 - June 2011</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                For a major film studio, I managed the implementation and support of the Marketing Resource Management application (Aprimo MRM) that tracked marketing spend on all channels for theatrical and home video titles. On a separate project, I served as a techno-functional BA on an implementation of a theatrical distribution system. This application managed the end to end theatrical distribution process from release planning, bookings and distribution through invoicing and reconciliation and reporting against box office receipts.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Sr Business Analyst"
+            company="Capgemini Consulting"
+            period="March 2008 - June 2011"
+            description="For a major film studio, I managed the implementation and support of the Marketing Resource Management application (Aprimo MRM) that tracked marketing spend on all channels for theatrical and home video titles. On a separate project, I served as a techno-functional BA on an implementation of a theatrical distribution system. This application managed the end to end theatrical distribution process from release planning, bookings and distribution through invoicing and reconciliation and reporting against box office receipts."
+            delay={700}
+          />
 
-          <Card className="group hover:shadow-glow transition-all duration-300 border-primary/20 bg-card/50 backdrop-blur">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                <div>
-                  <h3 className="font-saira text-2xl font-bold text-foreground mb-2">Programmer Analyst</h3>
-                  <p className="text-primary font-semibold mb-2">Environmental Systems Research Institute</p>
-                </div>
-                <Badge variant="secondary" className="shrink-0">June 2007 - March 2008</Badge>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                I worked as a .NET developer on ESRI's flagship ArcGIS family of products. I implemented a number of features in the ArcMAP application and worked closely with the QA team to write and execute test plans.
-              </p>
-            </CardContent>
-          </Card>
+          <TimelineItem
+            title="Programmer Analyst"
+            company="Environmental Systems Research Institute"
+            period="June 2007 - March 2008"
+            description="I worked as a .NET developer on ESRI's flagship ArcGIS family of products. I implemented a number of features in the ArcMAP application and worked closely with the QA team to write and execute test plans."
+            delay={800}
+          />
         </div>
       </section>
 
@@ -281,9 +234,10 @@ const Index = () => {
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Expertise</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
-            <CardContent className="p-6">
-              <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Functional Areas</h3>
+          <AnimatedSection delay={100}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
+              <CardContent className="p-6">
+                <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Functional Areas</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="text-primary mt-1">✓</span>
@@ -324,8 +278,10 @@ const Index = () => {
               </ul>
             </CardContent>
           </Card>
+          </AnimatedSection>
 
-          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
+          <AnimatedSection delay={200}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Product and Program Toolset</h3>
               <ul className="space-y-3">
@@ -360,8 +316,10 @@ const Index = () => {
               </ul>
             </CardContent>
           </Card>
+          </AnimatedSection>
 
-          <Card className="md:col-span-2 border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
+          <AnimatedSection delay={300} className="md:col-span-2">
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="font-saira text-2xl font-bold mb-6 text-foreground">Languages and Tools</h3>
               <div className="flex flex-wrap gap-3">
@@ -380,6 +338,7 @@ const Index = () => {
               </div>
             </CardContent>
           </Card>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -388,21 +347,25 @@ const Index = () => {
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Education</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow transition-all duration-300">
-            <CardContent className="p-6">
-              <h3 className="font-saira text-2xl font-bold mb-2 text-foreground">University of Southern California</h3>
-              <p className="text-primary font-semibold mb-2">MS - Computer Science</p>
-              <Badge variant="secondary">August 2005 - May 2007</Badge>
-            </CardContent>
-          </Card>
+          <AnimatedSection delay={100}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow transition-all duration-300">
+              <CardContent className="p-6">
+                <h3 className="font-saira text-2xl font-bold mb-2 text-foreground">University of Southern California</h3>
+                <p className="text-primary font-semibold mb-2">MS - Computer Science</p>
+                <Badge variant="secondary">August 2005 - May 2007</Badge>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
 
-          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow transition-all duration-300">
-            <CardContent className="p-6">
-              <h3 className="font-saira text-2xl font-bold mb-2 text-foreground">Ghulam Ishaq Khan Institute</h3>
-              <p className="text-primary font-semibold mb-2">BS - Computer Science</p>
-              <Badge variant="secondary">August 2000 - May 2004</Badge>
-            </CardContent>
-          </Card>
+          <AnimatedSection delay={200}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow transition-all duration-300">
+              <CardContent className="p-6">
+                <h3 className="font-saira text-2xl font-bold mb-2 text-foreground">Ghulam Ishaq Khan Institute</h3>
+                <p className="text-primary font-semibold mb-2">BS - Computer Science</p>
+                <Badge variant="secondary">August 2000 - May 2004</Badge>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -410,8 +373,9 @@ const Index = () => {
       <section className="container mx-auto px-6 py-16 pb-24">
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Awards & Certifications</h2>
         
-        <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
-          <CardContent className="p-6">
+        <AnimatedSection delay={100}>
+          <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300">
+            <CardContent className="p-6">
             <ul className="space-y-4">
               <li className="flex items-start gap-4">
                 <span className="text-3xl">🏆</span>
@@ -442,6 +406,7 @@ const Index = () => {
             </ul>
           </CardContent>
         </Card>
+        </AnimatedSection>
       </section>
     </div>
   );
