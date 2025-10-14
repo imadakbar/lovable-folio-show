@@ -134,9 +134,7 @@ const Index = () => {
             </div>
 
             <p className="text-lg md:text-xl text-foreground/90 mb-8 leading-relaxed">
-              I design and manage the implementation of enterprise scale web and mobile applications 
-              in the media and entertainment industry. I also founded and ultimately sold a company 
-              that provided media localization services in several languages.
+              I design and manage the implementation of enterprise class web and mobile applications for the digital supply chain. I also founded and ultimately sold a company that provided media localization services in several languages.
             </p>
 
             <div className="flex gap-4">
@@ -162,8 +160,8 @@ const Index = () => {
           <TimelineItem
             title="Director - Product Management"
             company="The Walt Disney Company"
-            period="March 2017 - Present"
-            description="I lead DMED's Asset Management Product team - we manage relationships with several business units that leverage our asset management and transport applications. I lead recurring meetings with business leadership across the enterprise to define strategy, prioritize development activities, create roadmaps, review timelines and risks, and manage expectations. I was formerly the Product Owner for Disney Studios' enterprise-wide Digital Asset Management system."
+            period="March 2017 - August 2025"
+            description="I lead the Asset Management Product team - we manage relationships with several business units that leverage our platforms' capabilities in the areas of asset management, media processing, QC, taxonomy management, and distribution. I lead recurring meetings with business leadership across the enterprise to define strategy, prioritize development activities, create roadmaps, review timelines and risks, and manage expectations. My team is also responsible for large scale content and data migrations as well as building and maintaining BI dashboards."
             delay={0}
           />
 
