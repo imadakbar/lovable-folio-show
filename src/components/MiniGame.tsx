@@ -44,12 +44,12 @@ export const MiniGame = ({ open, onOpenChange }: MiniGameProps) => {
     // Enemies
     const enemies: Array<{ x: number; y: number; speed: number; width: number; height: number; destroyed: boolean }> = [];
     
-    // Spawn initial enemies
-    for (let i = 0; i < 5; i++) {
+    // Spawn initial enemies (start easy)
+    for (let i = 0; i < 2; i++) {
       enemies.push({
         x: Math.random() * (canvas.width - 30),
         y: Math.random() * -400 - 100,
-        speed: 1 + Math.random() * 1.5,
+        speed: 0.5 + Math.random() * 0.5,
         width: 30,
         height: 30,
         destroyed: false,
@@ -136,13 +136,19 @@ export const MiniGame = ({ open, onOpenChange }: MiniGameProps) => {
         ctx.shadowBlur = 0;
       }
 
+      // Progressive difficulty based on score
+      const difficultyLevel = Math.floor(currentScore / 50);
+      const spawnRate = Math.max(30, 60 - difficultyLevel * 5);
+      const baseSpeed = 0.5 + difficultyLevel * 0.15;
+      const speedVariation = 0.5 + difficultyLevel * 0.1;
+
       // Spawn new enemies
       enemySpawnTimer++;
-      if (enemySpawnTimer > 60) {
+      if (enemySpawnTimer > spawnRate) {
         enemies.push({
           x: Math.random() * (canvas.width - 30),
           y: -30,
-          speed: 1 + Math.random() * 2,
+          speed: baseSpeed + Math.random() * speedVariation,
           width: 30,
           height: 30,
           destroyed: false,
