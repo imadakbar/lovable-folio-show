@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from "lucide-react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useState, useMemo } from "react";
 import { loadSlim } from "@tsparticles/slim";
@@ -8,6 +8,7 @@ import { TimelineItem } from "@/components/TimelineItem";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { MiniGameButton } from "@/components/MiniGame";
+import { Navigation } from "@/components/Navigation";
 
 const Index = () => {
   const [init, setInit] = useState(false);
@@ -94,6 +95,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 relative transition-colors duration-500">
+      <Navigation />
       <ThemeToggle />
       <MiniGameButton />
       {init && (
@@ -108,7 +110,7 @@ const Index = () => {
         />
       )}
       {/* Hero Section */}
-      <section className="relative overflow-hidden z-10">
+      <section id="about" className="relative overflow-hidden z-10 pt-20">
         <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
         <div className="container mx-auto px-6 py-20 relative z-10">
           <div className="max-w-4xl">
@@ -153,7 +155,7 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section className="container mx-auto px-6 py-16">
+      <section id="experience" className="container mx-auto px-6 py-16">
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Experience</h2>
         
         <div className="space-y-8">
@@ -231,8 +233,106 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section id="projects" className="container mx-auto px-6 py-16">
+        <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Projects</h2>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <AnimatedSection delay={100}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300 h-full">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-saira text-2xl font-bold mb-3 text-foreground">This Site</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">
+                  Personal portfolio website built with React, TypeScript, and Tailwind CSS.
+                </p>
+                <div className="flex gap-3">
+                  <a
+                    href="/"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Site
+                  </a>
+                  <a
+                    href="https://github.com/imadakbar/lovable-folio-show"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-accent transition-colors text-sm"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+
+          <AnimatedSection delay={200}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300 h-full">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-saira text-2xl font-bold mb-3 text-foreground">IMF CPL Visualizer</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">
+                  Tool for visualizing and analyzing IMF Composition Playlist files.
+                </p>
+                <div className="flex gap-3">
+                  <a
+                    href="http://imfcplvisualizer.s3-website-us-west-1.amazonaws.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Site
+                  </a>
+                  <a
+                    href="https://github.com/imadakbar/IMF-CPL-Visualizer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-accent transition-colors text-sm"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+
+          <AnimatedSection delay={300}>
+            <Card className="border-primary/20 bg-card/50 backdrop-blur hover:shadow-glow hover:scale-[1.02] transition-all duration-300 h-full">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-saira text-2xl font-bold mb-3 text-foreground">Media Inspector</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">
+                  Web-based tool for inspecting and analyzing media files.
+                </p>
+                <div className="flex gap-3">
+                  <a
+                    href="http://mediainsight.s3-website-us-west-1.amazonaws.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Site
+                  </a>
+                  <a
+                    href="https://github.com/imadakbar/mediainsight-spark"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-accent transition-colors text-sm"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Expertise Section */}
-      <section className="container mx-auto px-6 py-16">
+      <section id="expertise" className="container mx-auto px-6 py-16">
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Expertise</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
@@ -345,7 +445,7 @@ const Index = () => {
       </section>
 
       {/* Education Section */}
-      <section className="container mx-auto px-6 py-16">
+      <section id="education" className="container mx-auto px-6 py-16">
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Education</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
@@ -372,7 +472,7 @@ const Index = () => {
       </section>
 
       {/* Awards & Certifications Section */}
-      <section className="container mx-auto px-6 py-16 pb-24">
+      <section id="awards" className="container mx-auto px-6 py-16 pb-24">
         <h2 className="font-saira text-4xl md:text-5xl font-bold mb-12 gradient-text">Awards & Certifications</h2>
         
         <AnimatedSection delay={100}>
